@@ -1,0 +1,7 @@
+torch
+numpy
+tqdm
+einops
+matplotlib
+seaborn
+jupyter

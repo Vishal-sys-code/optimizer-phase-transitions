@@ -2,25 +2,25 @@
 
 This repository contains the code and analysis for a pilot study in mechanistic interpretability. The project aims to build a foundational toolkit for dissecting the internal workings of small neural networks, with a specific focus on how the choice of optimizer (AdamW vs. SGD) influences the emergence of learned features, or "circuits."
 
-## ✨ Core Features
+## Core Features
 
 This project provides a complete, end-to-end pipeline for:
 
-*   🧠 **Training Simple Models**: A 3-layer MLP is trained on a synthetic, algorithmic task.
-*   🔬 **Deep Activation Logging**: Forward hooks capture and save intermediate layer activations at regular training intervals.
-*   ⚖️ **Optimizer Comparison**: Easily train models with either `AdamW` or `SGD` to compare their learning dynamics.
-*   📈 **Representational Analysis**: A Jupyter notebook (`notebooks/week1_probe.ipynb`) provides tools for analyzing how representations evolve and diverge, using cosine similarity as a primary metric.
-*   🔧 **Causal Patching**: A dedicated script (`src/patch.py`) allows for causal interventions by "patching" activations from one model into another to measure their functional impact on performance.
+* **Training Simple Models**: A 3-layer MLP is trained on a synthetic, algorithmic task.
+* **Deep Activation Logging**: Forward hooks capture and save intermediate layer activations at regular training intervals.
+* **Optimizer Comparison**: Easily train models with either `AdamW` or `SGD` to compare their learning dynamics.
+* **Representational Analysis**: A Jupyter notebook (`notebooks/week1_probe.ipynb`) provides tools for analyzing how representations evolve and diverge, using cosine similarity as a primary metric.
+* **Causal Patching**: A dedicated script (`src/patch.py`) allows for causal interventions by "patching" activations from one model into another to measure their functional impact on performance.
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Setup
 
 First, clone the repository and install the required dependencies.
 
 ```bash
-git clone <repository-url>
-cd <repository-name>
+git clone https://github.com/Vishal-sys-code/optimizer-phase-transitions.git
+cd optimizer-phase-transitions
 pip install -r requirements.txt
 ```
 
@@ -48,7 +48,7 @@ The generated artifacts will be saved in the `/checkpoints` and `/analysis` dire
 python src/patch.py --source_model checkpoints/adamw/step_100.pt --target_model checkpoints/sgd/step_100.pt --patch_layer act1
 ```
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 .
@@ -68,6 +68,6 @@ python src/patch.py --source_model checkpoints/adamw/step_100.pt --target_model 
 └── requirements.txt  # Python dependencies
 ```
 
-## 📝 Findings
+## Findings
 
 A summary of the initial findings from this pilot study can be found in [docs/week1_summary.md](./docs/week1_summary.md). The report details the differences in metric trends, representational alignment, and the results of our causal patching experiments.
